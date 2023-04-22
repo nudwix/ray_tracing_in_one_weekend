@@ -1,0 +1,9 @@
+﻿# IDE and build dirs
+.idea/
+.vs/
+bin/
+bin-int/
+
+# VS configs
+*.vcxproj.filters
+*.vcxproj.user
