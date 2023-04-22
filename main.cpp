@@ -110,16 +110,15 @@ int main() {
 	const RTOCamera camera(lookFrom, lookAt, vectorUp, 20.0, RT::aspectRatio, 0.1, 10);
 
 	// Multithreading
-	constexpr int threadCount = 90;
 	std::vector<std::thread> workers;
 
 	// Render
 	std::cout << "P3\n" << RT::imageWidth << ' ' << RT::imageHeight << "\n255\n";
 	std::vector<int> image(RT::imageWidth * RT::imageHeight * 3);
 
-	std::cerr << "Tracing image with " << threadCount << " threads on CPU.\n";
-	for (int workerId = 0; workerId < threadCount; ++workerId) {
-		workers.emplace_back(RenderLines, std::ref(image), std::ref(camera), std::ref(world), workerId, threadCount);
+	std::cerr << "Tracing image with " << RT::threadCount << " threads on CPU.\n";
+	for (int workerId = 0; workerId < RT::threadCount; ++workerId) {
+		workers.emplace_back(RenderLines, std::ref(image), std::ref(camera), std::ref(world), workerId, RT::threadCount);
 	}
 	
 	for (std::thread& worker : workers) {

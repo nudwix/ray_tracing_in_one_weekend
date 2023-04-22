@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\Common.h" />
+    <ClInclude Include="Common\Config.h" />
     <ClInclude Include="Objects\Camera.h" />
     <ClInclude Include="Objects\RTObjects.h" />
     <ClInclude Include="Objects\Sphere.h" />

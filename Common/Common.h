@@ -1,9 +1,10 @@
 ﻿#pragma once
 
+#include "Config.h"
+
 // Shared standard headers
 #include <limits>
 #include <random>
-#include <vector>
 
 namespace RT
 {
@@ -11,14 +12,7 @@ namespace RT
     constexpr double infinity = std::numeric_limits<double>::infinity();
     constexpr double pi = 3.14159265358979323846;
     constexpr double nearZero = 1e-8;
-
-    // Image
-    constexpr double aspectRatio = 16.0 / 9.0;
-    constexpr int imageWidth = 1920;
-    constexpr int imageHeight = static_cast<int>(imageWidth / aspectRatio);
-    constexpr int samplesPerPixel = 32;
-    constexpr int maxDepth = 12;
-
+    
     // Utility functions
     inline double Clamp(const double val, const double min, const double max)
     {
